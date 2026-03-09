@@ -708,3 +708,43 @@ function loop() {
   volFill.style.width = Math.min(vol * 300, 100) + '%';
 
   // generat
+if (micActive && vol > 0.04) {
+    const count = Math.floor(vol * 0.5) + 1;
+    for (let i = 0; i < count; i++) {
+      stars.push(new Star(
+        canvas.width * 0.3 + Math.random() * canvas.width * 0.4,
+        canvas.height - 20,
+        Math.random() * 2 + 1,
+        false
+      ));
+    }
+  }
+
+  // 流れ星
+  for (let i = shootingStars.length - 1; i >= 0; i--) {
+    shootingStars[i].update();
+    shootingStars[i].draw();
+    if (shootingStars[i].isDead()) shootingStars.splice(i, 1);
+  }
+
+  // パーティクル更新
+  for (let i = particles.length - 1; i >= 0; i--) {
+    particles[i].update();
+    particles[i].draw();
+    if (particles[i].life <= 0) particles.splice(i, 1);
+  }
+
+  // 星の更新・描画
+  for (let i = stars.length - 1; i >= 0; i--) {
+    stars[i].update();
+    stars[i].draw();
+  }
+
+  // 上限
+  if (stars.length > 40) stars.splice(30, stars.length - 80);
+}
+
+loop();
+</script>
+</body>
+</html>
