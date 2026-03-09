@@ -76,7 +76,7 @@ Just speak, if you want to. The stars will listen.
 
 ## Live
 
-🌌 [Try aisiteru](https://soraniikou.github.io/aisiteru310)
+🌌 [Try aisiteru310](https://aisiteru310.vercel.app)
 
 &nbsp;
 
